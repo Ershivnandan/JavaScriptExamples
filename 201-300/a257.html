@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: verdana;
+            font-size: 20px;
+        }
+        
+        #tbl {
+            border: 1px solid #999;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl td, #tbl th {
+            border: 1px solid #eee;
+            border-collapse: collapse;
+            height: 50px;
+            width: 14%;
+        }
+
+        #tbl thead tr {
+            background-color: #777;
+            color: #fff;
+        }
+
+        #tbl tbody td {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(231, 91, 91);
+        }
+
+        caption {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: verdana;
+            color: #444;
+            padding: 10px;
+            /* text-align: left; */
+        }
+
+        select {
+            font-size: 32px;
+        }
+
+        #sel {
+            text-align: center;
+            margin: 50px;
+        } 
+
+        #yrlar, #yrrar {
+            height: 24px;
+        }
+
+        #yrcl {
+            height: 30px;
+            cursor: pointer;
+        }
+
+        #tbl_yrs {
+            border: 1px solid red;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl_mnths {
+            border: 1px solid red;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl_mnths td {
+            border-collapse: collapse;
+            border: 1px solid red;
+            padding-top: 20px; 
+            padding-bottom: 20px;
+            text-align: center; 
+            width: 25%;
+        }
+        
+        #tbl_yrs td {
+            border-collapse: collapse;
+            border: 1px solid red;
+            padding-top: 20px; 
+            padding-bottom: 20px;
+            text-align: center; 
+            width: 33%;
+        } 
+
+        #y {
+            display: none;
+        }
+        
+        .t {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .yr_rc {
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #z {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="sel">
+        <select id="months"></select>
+        <select id="years"></select>
+    </div>
+
+    <div id="x">
+        <table id="tbl">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+                
+            <tbody id="tbd">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <div id="y">
+        <table id="tbl_yrs">
+            <thead>
+                <tr>
+                    <td>
+                        <img src="images/arrow_l.png" id="yrlar" class="t">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <img src="images/arrow_r.png" id="yrrar" class="t">
+                    </td>
+                    <td>&nbsp;</td>
+                    <td align="right">
+                        <img src="images/close.png" id="yrcl">
+                    </td>
+                </tr>
+            </thead>
+            <tbody id="tbdyr"></tbody>
+        </table>
+    </div>
+
+    <div id="z">
+        <table id="tbl_mnths" class="a"></table>
+    </div>
+
+    <script>
+        var tbody = document.querySelector('#tbd');
+        var caption = document.querySelector('caption');
+        
+        var mnth = document.querySelector('#months');
+        var yrs = document.querySelector('#years');
+
+        var tbl = document.querySelector('#tbl');
+        var tbl_yrs = document.querySelector('#tbl_yrs');
+        var tbl_mnths = document.querySelector('#tbl_mnths');
+        
+        var x = document.querySelector('#x');
+        var y = document.querySelector('#y');
+        var z = document.querySelector('#z');
+        
+        var tbdyr = document.querySelector('#tbdyr');
+        
+        var larr, rarr;
+
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        
+        var currentDate = new Date();
+        currentDate.setDate(1);
+
+        // ----------------------------------------
+
+        function showMonths() {
+            mnth.innerHTML = null;
+            for(var i=0;i<months.length;i++) {
+                var opt = document.createElement('option');
+                opt.innerText = months[i];
+                opt.value = i;
+                if(currentDate.getMonth() == i) {
+                    opt.selected = true;
+                }
+                mnth.append(opt);
+            }
+        }
+
+        showMonths();
+
+        function changeMonth() {
+            currentDate.setMonth(mnth.value);
+
+            showCal();
+        }
+
+        mnth.onchange = changeMonth;
+
+        function showYears() {
+            yrs.innerHTML = null;
+            for(var i=1980;i<2042;i++) {
+                var opt = document.createElement('option');
+                opt.innerText = i;
+                if(i == currentDate.getFullYear()) {
+                    opt.selected = true;
+                }
+                yrs.append(opt);
+            }
+        }
+
+        showYears();
+
+        function changeYear() {
+            currentDate.setFullYear(yrs.value);
+            currentDate.setMonth(currentDate.getMonth()-1);
+
+            showCal();
+        }
+
+        yrs.onchange = changeYear;
+
+        function onColOv() {
+            //console.log(this.innerText);
+            // this.style.backgroundColor = '#eee';
+            this.style.backgroundColor = 'rgb(247, 239, 245)';
+            this.style.cursor = 'pointer';
+        }
+
+        function onColOt() {
+            this.style.backgroundColor = '#fff';
+        }
+
+        function setArrows() {
+            larr = document.querySelector('#larr');
+            rarr = document.querySelector('#rarr');
+
+            larr.onclick = showPrevious;
+            rarr.onclick = showNext;
+        }
+
+        
+        function showFinalOutput() {
+            month_choice = this.innerText;
+            showCal();
+        }
+
+        var month_choice = null;
+        var k = 0;
+        function showTbodyMonths() {
+            year_choice = this.innerText;
+
+            y.style.display = 'none';
+
+            for(var i=0;i<3;i++) {
+                var row = tbl_mnths.insertRow(i);
+
+                for(var j=0;j<4;j++) {
+                    var col = row.insertCell(j);
+                    col.innerText = months[k++];
+                    col.className = 'yr_rc';
+                    col.onclick = showFinalOutput;
+                }
+            }
+
+            z.style.display = 'block';
+        }
+
+        var year_choice = null;
+        function showTbodyYears() {
+            x.style.display = 'none';
+
+            var startYr = currentDate.getFullYear() - 4;
+            for(var i=0;i<3;i++) {
+                var row = tbdyr.insertRow(i);
+                
+                for(var j=0;j<3;j++) {
+                    var col = row.insertCell(j);
+                    col.innerText = startYr++;
+                    col.className = 'yr_rc';
+                    col.onclick = showTbodyMonths;
+                }
+            }
+
+            y.style.display = 'block';            
+        }
+
+        function showCal() {
+            tbody.innerHTML = null;
+
+            showMonths();
+            showYears();
+
+            var currentDay = currentDate.getDay();
+            var currentMonth = currentDate.getMonth();
+
+            caption.innerHTML = '<img src="images/arrow_l.png" height="28" id="larr"> ' 
+                                    + '<span id="cr_monyr">' + months[currentDate.getMonth()] 
+                                    + ', ' + currentDate.getFullYear() + '</span>' 
+                                    + ' <img src="images/arrow_r.png" height="28" id="rarr">';
+          
+            setArrows();                        
+
+            var cr_monyr = document.querySelector('#cr_monyr');
+            cr_monyr.onclick = showTbodyYears;
+
+            var i = 0;
+            var start = true;
+            var end = true;
+            do {
+                var row = tbody.insertRow(i++);
+
+                for(j = 0; j < 7; j++) {
+                    var col = row.insertCell(j);
+
+                    if(start && j == currentDay) {
+                        col.innerText = currentDate.getDate();
+                        currentDate.setDate(currentDate.getDate()+1);
+                        start = false;
+                    } else if(!start && end) {
+                        if(currentDate.getMonth() == currentMonth) {
+                            col.innerText = currentDate.getDate();
+                            currentDate.setDate(currentDate.getDate()+1);
+                        } else {
+                            end = false;
+                        }
+                    }
+
+                    col.onmouseover = onColOv;
+                    col.onmouseout = onColOt;
+                }
+            } while(end);
+        }
+
+        showCal();
+
+        
+
+        function showPrevious() {
+            currentDate.setMonth(currentDate.getMonth() - 2);
+            showCal();
+        }
+
+        function showNext() {
+            currentDate.setMonth(currentDate.getMonth());
+            showCal();
+        }
+
+        
+
+    </script>
+</body>
+</html>

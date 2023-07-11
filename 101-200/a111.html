@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>A1</p>
+    <p>A2</p>
+    <p>A3</p>
+    <p>A4</p>
+
+    <script>
+        var x = document.getElementsByTagName('p');
+
+        // x.forEach(pro); //forEach does not supported by collection
+
+        //forEach is supported by List and Array
+        var y = Array.from(x);
+        y.forEach(pro);
+
+        function pro(t, i) { // t-for next record, i - index of that record
+            console.log(t, i);
+        }
+    </script>
+</body>
+</html>

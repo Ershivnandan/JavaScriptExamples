@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #x {
+            border: 2px solid green;
+            font-size: 24px;
+            background-color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <span>some text 1</span> <br><br>
+    <span>some text 2</span> <br><br>
+    <span>some text 3</span> <br><br>
+    <span>some text 4</span> <br><br>
+
+    <script>
+        var recs = document.getElementsByTagName('span');
+
+        // console.log(recs);
+
+        recs[0].onmouseover = onOv;
+        recs[1].onmouseover = onOv;
+        recs[2].onmouseover = onOv;
+        recs[3].onmouseover = onOv;
+
+        
+        function onOv() {
+            this.id = 'x';
+        }
+    </script>
+
+</body>
+</html>

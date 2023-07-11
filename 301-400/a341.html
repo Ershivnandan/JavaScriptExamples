@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #outer {
+            border: 3px solid Red;
+            width: 800px;
+            height: 200px;
+        }
+
+        .a {
+            width: 150px;
+            height:150px;
+            border: 3px solid red;
+            display: inline-block;
+            margin: 12px;
+        }
+
+        #inner1 {
+            border-color: green;
+        }
+
+        #inner2 {
+            border-color: yellow;
+        }
+
+        #inner3 {
+            border-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner1" class="a"></div>
+        <div id="inner2" class="a"></div>
+        <div id="inner3" class="a"></div>
+    </div>
+
+    <hr>
+
+    <script>
+        
+        
+        var o = document.querySelector('#outer');
+
+        //event delegation...
+        o.addEventListener('click', (e) => {
+            console.log(e.target.id, ' ---');
+            // console.log(e.target.nodeName, ' ---');
+        });
+        
+        
+    </script>
+</body>
+</html>

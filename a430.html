@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <div id="a"></div>
+
+    <hr>
+
+    <script>
+        const elm = document.querySelector('#a');
+
+        const url = 'https://picsum.photos/v2/list';
+
+        
+        const getData = async () => {
+            let t = await fetch(url);
+            let s = await t.json();
+            
+            return s;
+        };
+        
+        getData().then((data)=>{
+            for(let x of data) {
+                let obj = document.createElement('img');
+                obj.src = x.download_url;
+                obj.style.height = '200px';
+
+                elm.append(obj);
+            }
+        }).catch((err)=>{
+            console.log('Some Error: ', err);
+        });        
+
+    </script>
+</body>
+</html>

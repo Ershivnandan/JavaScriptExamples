@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #outer_most {
+            width: 700px;
+            height: 500px;
+            border: 3px solid red;
+        }
+
+        #outer {
+            width: 500px;
+            height: 300px;
+            border: 3px solid blue;
+        }
+
+        #inner_most {
+            width: 300px;
+            height: 200px;
+            border: 3px solid green;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer_most">
+        <div id="outer">
+            <div id="inner_most">
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <script>
+        var om = document.querySelector('#outer_most');
+        var o = document.querySelector('#outer');
+        var im = document.querySelector('#inner_most');
+
+        //event captured by the outer most div element... please check the third argument true in addEventListener
+        om.addEventListener('click', (e) => { console.log('outer most') }, true);
+        o.addEventListener('click', (e) => { console.log('outer') }, true);
+        im.addEventListener('click', (e) => { console.log('inner most') });
+
+        //event tricklng because event propagation direction is outer -> inner
+    </script>
+</body>
+</html>

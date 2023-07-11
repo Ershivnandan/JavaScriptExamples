@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <input type="text" id="a">
+    <input type="button" value="Check" id="b">
+
+    <script>
+        const a = document.querySelector('#a');
+        const b = document.querySelector('#b');
+
+        let val;
+
+        b.addEventListener('click', () => {
+            val = a.value;
+
+            try {
+                if(val < 50) {
+                    throw new Error('value is too small to process..'); 
+                } else {
+                    console.log('Value is: ', val);
+                }
+            } catch(err) {
+                console.log(err.name);
+                console.log(err.message);
+            }
+        });
+
+    </script>
+</body>
+</html>

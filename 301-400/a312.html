@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    
+
+    <script>
+        //rest operator
+        function process(...a) {
+            for(var i=0;i<a.length;i++) {
+                
+                console.log(a[i], '~~~');
+            }
+        }
+
+        var x = [34, 56, 78, 18];
+
+        //spread operator
+        process(...x);
+
+    </script>
+</body>
+</html>

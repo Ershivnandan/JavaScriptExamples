@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        var arr = [45, 67, 12, 23, 88, 12, 9, 44, 79];
+
+        var x = null;
+
+        x = arr.filter(largerThanFifty);
+
+        function largerThanFifty(nextRecord) {
+            return nextRecord > 50;
+        }
+
+        console.log(x);
+        
+    </script>
+</body>
+</html>

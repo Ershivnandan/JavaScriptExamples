@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        sessionStorage.setItem('employee_name', 'Saket Kumar');
+        sessionStorage.setItem('employee_age', 32);
+        sessionStorage.setItem('employee_salary', 56000);
+
+        console.log(sessionStorage);
+
+        console.log('++++++++++++++++++');
+        
+        console.log(sessionStorage.getItem('employee_name'));
+        console.log(sessionStorage.getItem('employee_age'));
+        console.log(sessionStorage.getItem('employee_salary'));
+
+        sessionStorage.removeItem('employee_age');
+
+        console.log('++++++++++++++++++');
+
+        console.log(sessionStorage.getItem('employee_name'));
+        console.log(sessionStorage.getItem('employee_age'));
+        console.log(sessionStorage.getItem('employee_salary'));
+
+        sessionStorage.clear();
+        console.log('++++++++++++++++++');
+
+        console.log(sessionStorage.getItem('employee_name'));
+        console.log(sessionStorage.getItem('employee_age'));
+        console.log(sessionStorage.getItem('employee_salary'));
+    </script>
+</body>
+</html>

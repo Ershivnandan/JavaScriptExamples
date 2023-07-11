@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <br>
+
+    <script>
+        //case 1: object literaal
+        var x = {
+                    name: 'om', 
+                    age: 12,
+                    info: function() {
+                        console.log(`My Name: ${this.name} and  age: ${this.age}`)
+                    }
+                };
+
+        //Object constructor
+        var y = new Object();
+        y.name = 'jay';
+        y.age = 8;
+        y.info = function() {
+                        console.log(`My Name: ${this.name} and  age: ${this.age}`)
+                    };
+
+        // constructor function
+        function employee(nm, ag) {
+            this.name = nm;
+            this.age = ag;
+            this.info = function() {
+                        console.log(`My Name: ${this.name} and  age: ${this.age}`)
+                    };
+        }
+        
+        var z = new employee('ram', 3);
+
+        x.info();
+        y.info();
+        z.info();
+
+        console.log(z);
+    </script>
+</body>
+</html>

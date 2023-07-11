@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        //class is a blueprint, specification, template...
+        class employee {
+            
+            //constructor function
+            constructor(name, age, college) {
+                this.name = name;
+                this.age = age;
+                this.college = college;
+            }
+
+            //prototype function...
+            show_info() {
+                console.log(`Name: ${this.name} and Age: ${this.age}`)
+            }
+        }
+        
+
+        //you can create an object to handle the data of a  real time entity...
+        var o1 = new employee('om', 23, 'Global');
+
+        var o2 = new employee('jay', 34, 'JEC');
+
+        //<object>.<function>
+        o1.show_info();
+        o2.show_info();
+
+        //<class-name>.<function>
+        // employee.show_info();
+
+        console.log(o1);
+        console.log(o1.__proto__);
+    </script>
+</body>
+</html>

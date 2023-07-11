@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .x {
+            border: 1px solid red;
+            color: red;
+            background-color: rgb(244, 219, 212);
+            border-radius: 5px;
+            padding: 5px 12px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <span>some text A</span> <br><br>
+    <span>some text B</span> <br><br>
+    <span>some text C</span> <br><br>
+    <span>some text D</span> <br><br>
+    <span>some text E</span> <br><br>
+
+    <script>
+        var recs = document.getElementsByTagName('span');
+
+        // console.log(recs);
+
+        //old
+        // recs[0].onclick = onCl;
+        // recs[1].onclick = onCl;
+        // recs[2].onclick = onCl;
+        // recs[3].onclick = onCl;
+        // recs[4].onclick = onCl;
+
+        //new
+        //recs[0].onclick = recs[1].onclick = recs[2].onclick = recs[3].onclick = recs[4].onclick = onCl;
+
+        function onCl() {
+            this.className = 'x';
+        }
+    </script>
+</body>
+</html>

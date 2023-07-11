@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        function sumOfFirstNNums(n) {
+            if(n==1) {
+                return 1;
+            } else {
+                return n + sumOfFirstNNums(n-1);
+            }
+        }
+
+        var res = sumOfFirstNNums(3);
+
+        console.log('Sum of first ' + 3 + ' numbers is : ' + res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <button id="a">Show Info</button>
+
+    <script>
+        const a = document.querySelector('#a');
+
+        let reqObj = null;
+
+        // function getInfo() {
+        //     console.log(reqObj.readyState, '----');
+        // }
+
+        a.addEventListener('click', () => {
+            reqObj = new XMLHttpRequest(); 
+
+            reqObj.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+            
+            // reqObj.onreadystatechange = getInfo;
+            reqObj.addEventListener('readystatechange', () => {
+                if(reqObj.readyState==4 && reqObj.status==200) {
+                    console.log(reqObj.responseText);
+                }
+            });
+
+            reqObj.send();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script> 
+
+        let showInfo = function(degree, branch, semester) {
+            console.log('My Nmae:', this.name, 'and My Age:', this.age, 'and the Degree:', degree, 'Branch:', branch, 'Semester:', semester);
+        };
+
+        let obj1 = {
+            name: 'ramji',
+            age: 12
+        };
+
+        
+        showInfo.call(obj1, 'BTech', 'CS', '5th');
+
+        let obj2 = {
+            name: 'omji',
+            age: 18
+        };
+
+       
+        showInfo.call(obj2, 'MTech', 'EC', '3rd');
+        
+        let obj3 = {
+            name: 'goluji',
+            age: 7
+        };
+
+        
+        showInfo.call(obj3, 'BE', 'IT', '2nd');
+    </script>
+</body>
+</html>

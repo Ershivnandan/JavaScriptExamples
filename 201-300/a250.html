@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: verdana;
+            font-size: 20px;
+        }
+        
+        #tbl {
+            border: 2px solid red;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl td, #tbl th {
+            border: 2px solid red;
+            border-collapse: collapse;
+            height: 50px;
+            width: 14%;
+        }
+
+        #tbl thead tr {
+            background-color: #777;
+            color: #fff;
+        }
+
+        tbody td {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(231, 91, 91);
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+            
+        <tbody id="tbd">
+            
+        </tbody>
+    </table>
+
+    <script>
+        var currentDate = new Date();
+
+        currentDate.setDate(1);
+        
+        var currentDay = currentDate.getDay();
+
+        var tbody = document.querySelector('#tbd');
+
+        var i = 0;
+        var flag = true;
+        do {
+            var row = tbody.insertRow(i++);
+
+            for(j = 0; j < 7; j++) {
+                var col = row.insertCell(j);
+                if(flag && j == currentDay) {
+                    col.innerText = 1;
+                    flag = false;
+                }
+            }
+        } while(flag);
+    </script>
+</body>
+</html>

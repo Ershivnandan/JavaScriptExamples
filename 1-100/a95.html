@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #a {
+            border: 2px solid red;
+            width: 200px;
+        }
+
+        #b {
+            height: 22px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        .x {
+            margin: 5px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Email Addresses: </h3>
+
+    <div id="a">
+        <input type="email" class="x">
+    </div>
+
+    <img src="images/plus.jpg" id="b">
+
+    <script>
+        var x = document.querySelector('#a');
+        var y = document.querySelector('#b');
+
+        y.onclick = createNewEmailField;
+
+        function createNewEmailField() {
+            var newElm = document.createElement('input');
+            newElm.classList.add('x');
+            x.append(newElm);
+        }
+
+    </script>
+</body>
+</html>

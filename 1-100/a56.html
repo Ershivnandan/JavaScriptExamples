@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="a">Some Text</p>
+
+    <input type="button" value="Change Text" id="b">
+
+    <script>
+        var x = document.getElementById('a');
+        var y = document.getElementById('b');
+
+        y.onclick = show;
+
+        function show() {
+            
+            if(x.innerHTML == 'Goog Morning'){
+                x.innerHTML = 'Chenge Text';
+            }
+            else if(x.innerHTML == 'Chenge Text'){
+                x.innerHTML = 'Good Morning';
+            }
+            else{
+                x.innerHTML = 'Sorry';
+            } 
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        //constructor function...
+        function User(name, email) {
+            this.name = name;
+            this.email = email;
+
+            this.login = function() {
+                console.log(`My Name: ${this.name} and Email: ${this.email}`);
+            };
+        }
+
+        const user = new User('om', 'om@gmail.com');
+        user.login();
+
+
+        console.log(user);
+
+        //---------------x --------------
+        
+        
+        // class User {
+        //     constructor(name, email) {
+        //         this.name = name;
+        //         this.email = email;
+        //     }
+
+        //     login() {
+        //         console.log('Hello');
+        //     }
+        // }
+
+        // let s = new User('golu', 'golu@gmail.com');
+
+        // console.log(s);
+    </script>
+</body>
+</html>

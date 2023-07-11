@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+    <a href="#">Link 4</a>
+
+    <a name="A">anchor A</a>
+    <a name="B">anchor B</a>
+    <a name="C">anchor C</a>
+
+    <script>
+        var a = document.getElementsByTagName('a');
+        console.log(a);
+
+        var b = document.anchors;
+        console.log(b);
+        console.log(b[0]);
+        console.log(b[1]);
+        console.log(b[2]);
+
+        var c = document.links;
+        console.log(c);
+        console.log(c[0]);
+        console.log(c[1]);
+        console.log(c[2]);
+        console.log(c[3]);
+    </script>
+</body>
+</html>

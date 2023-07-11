@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+
+        class student {
+            static max_age = 20; 
+
+            //constructor function
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            //prototype function
+            show_info() {
+                console.log(`Name: ${this.name} and Age: ${this.age}`)
+            }
+
+            //static function
+            static define_student() {
+                console.log('student is a .....');
+            }
+
+            static show_max_age() {
+                console.log(max_age);
+            }
+        }
+
+        var s = new student('umesh', 23);
+        var t = new student('rohan', 12);
+
+        student.define_student(); //OK
+        student.show_info(); //NOT OK
+    </script>
+</body>
+</html>

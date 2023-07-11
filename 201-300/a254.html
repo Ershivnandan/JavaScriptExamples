@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: verdana;
+            font-size: 20px;
+        }
+        
+        #tbl {
+            border: 1px solid #999;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl td, #tbl th {
+            border: 1px solid #eee;
+            border-collapse: collapse;
+            height: 50px;
+            width: 14%;
+        }
+
+        #tbl thead tr {
+            background-color: #777;
+            color: #fff;
+        }
+
+        tbody td {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(231, 91, 91);
+        }
+
+        caption {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: verdana;
+            color: #444;
+            padding: 10px;
+            /* text-align: left; */
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+            
+        <tbody id="tbd">
+            
+        </tbody>
+    </table>
+
+    <script>
+        var tbody = document.querySelector('#tbd');
+        var caption = document.querySelector('caption');
+        var larr, rarr;
+
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        
+        var currentDate = new Date();
+        currentDate.setDate(1);
+
+        function onColOv() {
+            //console.log(this.innerText);
+            this.style.backgroundColor = '#eee';
+            this.style.cursor = 'pointer';
+        }
+
+        function onColOt() {
+            this.style.backgroundColor = '#fff';
+        }
+
+        function clearRecords() {
+            var rows = tbody.rows;
+            for(var i=0;i<rows.length;i++) {
+                tbody.deleteRow(0);
+            }
+        }
+
+        function setArrows() {
+            larr = document.querySelector('#larr');
+            rarr = document.querySelector('#rarr');
+
+            larr.onclick = showPrevious;
+            rarr.onclick = showNext;
+        }
+
+        function showCal() {
+            // clearRecords();
+            tbody.innerHTML = null;
+
+            var currentDay = currentDate.getDay();
+            var currentMonth = currentDate.getMonth();
+            console.log(currentMonth)
+
+            caption.innerHTML = '<img src="images/arrow_l.png" height="28" id="larr"> ' 
+                                    + months[currentDate.getMonth()] 
+                                    + ', ' + currentDate.getFullYear() 
+                                    + ' <img src="images/arrow_r.png" height="28" id="rarr">';
+          
+            setArrows();                        
+
+            var i = 0;
+            var start = true;
+            var end = true;
+            do {
+                var row = tbody.insertRow(i++);
+
+                for(j = 0; j < 7; j++) {
+                    var col = row.insertCell(j);
+
+                    if(start && j == currentDay) {
+                        col.innerText = currentDate.getDate();
+                        currentDate.setDate(currentDate.getDate()+1);
+                        start = false;
+                    } else if(!start && end) {
+                        if(currentDate.getMonth() == currentMonth) {
+                            col.innerText = currentDate.getDate();
+                            currentDate.setDate(currentDate.getDate()+1);
+                        } else {
+                            end = false;
+                        }
+                    }
+
+                    col.onmouseover = onColOv;
+                    col.onmouseout = onColOt;
+                }
+            } while(end);
+        }
+
+        showCal();
+
+        function showPrevious() {
+            currentDate.setMonth(currentDate.getMonth() - 2);
+            showCal();
+        }
+
+        function showNext() {
+            currentDate.setMonth(currentDate.getMonth());
+            showCal();
+        }
+
+    </script>
+</body>
+</html>

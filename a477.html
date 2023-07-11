@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Helo</h1>
+
+    <hr>
+
+    <script>
+        let arr = [10, 20, 30, 40, 50, 60];
+
+        // if(Array.prototype.map) {
+        //     console.log('funciton map supported');
+        // } else {
+        //     console.log('funciton map not supported');
+        // }
+
+        // let x = arr.map(a => a/2);
+
+        // Array.prototype.map = null;
+        // let x = arr.map(a => a/2);
+
+        Array.prototype.xmap = function(callback) {
+            let y = [];
+
+            for(let i = 0; i < this.length; i++) {
+                y.push(callback(this[i]));
+            }
+
+            return y; 
+        };
+
+        // let x = arr.xmap(a => a/2);
+        let x = arr.xmap(a => a*2);
+
+        console.log(x);
+    </script>
+</body>
+</html>

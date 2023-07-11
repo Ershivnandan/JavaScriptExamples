@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        #a {
+            width: 700px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="a" align="center">Deendayal Chowk To AirPort in 30 minutes</h1>
+
+    <hr>
+
+    <script>
+        var a = document.querySelector('#a');
+
+        var str = a.innerText;
+
+        var i = 0;
+        var displayMovingString = () => {
+            var fChar = str.charAt(0);
+            var subStr = str.substr(1);
+            if(i == 0) {
+                str = subStr + ' ' +fChar;
+            } else {
+                str = subStr + fChar;
+            }
+            i++;
+            a.innerText = str;
+        };
+
+        setInterval(displayMovingString, 200);
+    </script>
+</body>
+</html>

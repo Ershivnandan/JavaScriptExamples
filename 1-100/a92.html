@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .a {
+            font-size: 24px;
+        }
+
+        .b {
+            color: red;
+        }
+
+        .c {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <span class="a">Some text</span>
+
+    <script>
+        var x = document.getElementsByTagName('span')[0];
+
+        x.onclick = addClass;
+
+        function addClass() {
+            // x.classList.add('b');
+            // x.classList.add('c');
+
+            //or
+
+            x.classList.add('c','b');
+        }
+    </script>
+</body>
+</html>

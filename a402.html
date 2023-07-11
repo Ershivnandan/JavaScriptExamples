@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <button id="a">Show Data</button>
+
+    <hr>
+
+    <table border="1" align="center" width="70%" id="tbl">
+        
+    </table>
+
+
+    <script>
+        const btn = document.querySelector('#a');
+        const tbl = document.querySelector('#tbl');
+
+        let reqObj = null;
+
+        btn.addEventListener('click', () => {
+            reqObj = new XMLHttpRequest();
+
+            reqObj.open('GET', 'https://jsonplaceholder.typicode.com/todos/');
+
+            reqObj.addEventListener('readystatechange', () => {
+                if(reqObj.readyState == 4 && reqObj.status == 200) {
+                    let resp = reqObj.responseText;
+
+                    resp = JSON.parse(resp);
+                    
+                    let i = 0;
+                    for(let x of resp) {
+                        let row = tbl.insertRow(i++);
+
+                        let j = 0;
+                        for(let y in x) {
+                            let col = row.insertCell(j++);
+                            col.innerText = x[y];
+                        }
+                    }   
+                } 
+            });
+
+            reqObj.send();
+        });
+    </script>
+</body>
+</html>

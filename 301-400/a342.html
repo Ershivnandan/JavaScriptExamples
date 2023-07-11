@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #outer {
+            border: 3px solid Red;
+            width: 800px;
+            height: 200px;
+        }
+
+        .a {
+            width: 150px;
+            height:150px;
+            border: 3px solid red;
+            display: inline-block;
+            margin: 12px;
+        }
+
+        #inner1 {
+            border-color: green;
+        }
+
+        #inner2 {
+            border-color: yellow;
+        }
+
+        #inner3 {
+            border-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner1" class="a"></div>
+        <div id="inner2" class="a"></div>
+        <div id="inner3" class="a"></div>
+    </div>
+
+    <hr>
+
+    <script>
+        var outer = document.querySelector('#outer');
+
+        var all = outer.children;
+
+        var arr = Array.from(all);
+
+        arr.forEach((child)=>{
+            console.log(child.id);
+        });
+
+        // var i1 = document.querySelector('#inner1');
+        // var i2 = document.querySelector('#inner2');
+        // var i3 = document.querySelector('#inner3');
+        
+        
+        
+        // i1.addEventListener('click', () => {
+        //     console.log(i1.id);
+        // });
+
+        // i2.addEventListener('click', () => {
+        //     console.log(i2.id);
+        // });
+        
+        // i3.addEventListener('click', () => {
+        //     console.log(i3.id);
+        // });
+    </script>
+</body>
+</html>

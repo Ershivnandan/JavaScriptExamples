@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #btn {
+            font-size: 42px;
+            font-weight: bold;
+            padding: 12px 20px;
+        }
+    </style>
+</head>
+<body>
+    <p style="text-align: center; padding-top: 100px; padding-botom: 100px;">
+        <button id="btn">Pay 5000</button>
+    </p>
+
+    <script>
+        const btn = document.querySelector('#btn');
+
+        const sendReq = () => {
+            console.log('Send Network request...');
+        };
+
+        const throttleFunc = (func, delay) => {
+            let lastReq = 0;
+
+            return function() {
+                let curReq = new Date().getTime();
+                console.log(curReq,' ++++');
+
+                if(curReq - lastReq < delay) {
+                    return;
+                }
+
+                lastReq = curReq;
+                func();
+            };
+        };
+
+        const sendReqWithSomePause = throttleFunc(sendReq, 3000);
+
+        btn.addEventListener('click', sendReqWithSomePause);
+    </script>
+</body>
+</html>

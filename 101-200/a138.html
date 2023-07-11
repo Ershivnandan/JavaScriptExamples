@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1 id="a">1</h1>
+
+    <input type="number" id="inp">
+    <input type="button" value="Add" id="add" />
+
+    <hr>
+
+    <input type="button" value="Remove" id="remove" />
+
+    <hr>
+
+    <script>
+        var a = document.querySelector('#a');
+        
+        var inp = document.querySelector('#inp');
+
+        var btn1 = document.querySelector('#add');
+        var btn2 = document.querySelector('#remove');
+
+        var x = [];
+
+        btn1.onclick = addRecord;
+        btn2.onclick = removeRecord;
+
+        function addRecord() {
+            x.push(inp.value);
+            inp.value = '';
+            a.innerHTML = x.join();
+        }
+
+        function removeRecord() {
+            x.pop();
+            a.innerHTML = x.join();
+        }
+    </script>
+</body>
+</html>

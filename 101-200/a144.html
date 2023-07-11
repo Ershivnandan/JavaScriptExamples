@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <h1 id="a">Hello</h1>
+
+    <h1 id="b"></h1>
+
+    <hr>
+
+    <input type="button" value="Sort" id="btn">
+
+    <script>
+        // var arr = [66, 88, 22, 11];
+        var arr = [67, 34, 238, 4];
+
+        var btn = document.querySelector('#btn');
+
+        var hd1 = document.querySelector('#a');
+        hd1.innerHTML = arr.join();
+
+        var hd2 = document.querySelector('#b');
+
+        btn.onclick = sortRecords;
+
+        function sortRecords() {
+            arr.sort();
+            hd2.innerHTML = arr.join();
+        }
+    </script>
+</body>
+</html>

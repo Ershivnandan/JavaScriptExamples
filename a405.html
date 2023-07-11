@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <button id="a">Show Info</button>
+
+    <script>   
+    
+        const btn  = document.querySelector('#a');
+
+        let req = null;
+
+        const getData = () => {
+            req = new XMLHttpRequest();
+
+            req.open('GET', 'https://jsonplaceholder.typicode.com/todos/1');
+
+            req.addEventListener('readystatechange', () => {
+                //success and failure is handled right in the request sending code
+                if(req.readyState == 4 && req.status == 200) {
+                    let records = JSON.parse(req.responseText);
+
+                    console.log(records);   
+                } else if(req.readyState == 4) {
+                    console.log('some error while getting response from server');   
+                }
+            });
+
+            req.send();
+        };
+        
+        btn.addEventListener('click', getData);
+
+        
+    </script>
+</body>
+</html>

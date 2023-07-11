@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        // First Class (citizen) 'Function' ....
+
+        let pro = () => {
+            console.log('Hi...');
+        };
+
+        function info(x) {
+            x();
+
+            let show = () => {
+                console.log('show info');
+            };
+
+            return show;
+        }
+
+        let func = info(pro);
+
+        func();
+
+        function student(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        let obj = new student('gopal', 12);
+
+        console.log(typeof obj, obj);
+
+        class employee {
+            name = 'om';
+            age = 12;
+        }
+
+        let emp = new employee();
+
+        console.log(typeof emp, emp);
+        console.log(typeof employee);
+    </script>
+</body>
+</html>

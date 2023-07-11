@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Hello</h2>
+
+    <hr>
+
+    <script>
+
+        const getData = (resource) => {
+            return new Promise((resolve, reject) => {
+                let req = new XMLHttpRequest();
+
+                req.open('GET', resource);
+
+                req.addEventListener('readystatechange', () => {
+                    if(req.readyState==4 && req.status == 200) {
+                        resolve(req.responseText);
+                    } else if(req.readyState == 4) {
+                        reject('some error...');
+                    }
+                });
+
+                req.send();
+            });
+
+        };
+
+        const url = 'https://jsonplaceholder.typicode.com/todos/';
+
+        // callback hell...
+        getData(url+1).then((data)=>{
+            console.log(data);
+            getData(url+2).then((data)=>{
+                console.log(data);
+                getData(url+3).then((data)=>{
+                    console.log(data);
+                }).catch((err)=>{
+                    console.log('--1--');
+                });
+            }).catch((err)=>{
+                console.log('--2--');
+            });
+        }).catch((err)=>{
+            console.log('--3--');
+        });
+        
+    </script>
+</body>
+</html>

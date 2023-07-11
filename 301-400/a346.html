@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="#" id="form">
+        <table>
+            <tr>
+                <th align="right" width="40%">Name</th>
+                <td width="60%">
+                    <input type="text" id="nm">
+                </td>
+            </tr>
+            <tr>
+                <th align="right" width="40%">College</th>
+                <td width="60%">
+                    <input type="text" id="college">
+                </td>
+            </tr>
+            <tr>
+                <th align="right" width="40%">Degree</th>
+                <td width="60%">
+                    <input type="text" id="degree">
+                </td>
+            </tr>
+            <tr>
+                <th align="right" width="40%">Branch</th>
+                <td width="60%">
+                    <input type="text" id="branch">
+                </td>
+            </tr>
+            <tr>
+                <th align="right" width="40%">Semester</th>
+                <td width="60%">
+                    <input type="text" id="semester">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Save" id="save">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <input type="button" value="Show All Records" id="show_all">
+
+    <table border="1" align="center" width="60%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>College</th>
+                <th>Degree</th>
+                <th>Branch</th>
+                <th>Semester</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+
+        </tbody>       
+    </table>
+
+    <script>
+        var nm = document.querySelector('#nm');
+        var college = document.querySelector('#college');
+        var degree = document.querySelector('#degree');
+        var branch = document.querySelector('#branch');
+        var semester = document.querySelector('#semester');
+        
+        var form = document.querySelector('#form');
+
+        var save = document.querySelector('#save');
+        var tbd = document.querySelector('#tbd');
+        var show_all = document.querySelector('#show_all');
+        var arr = [];
+
+        show_all.addEventListener('click', () => {
+            tbd.innerHTML = null; 
+            var i = 0;
+            arr.forEach((student)=>{
+                var row = tbd.insertRow(i);
+
+                var j = 0;
+                for(var prop in student) {
+                    var col = row.insertCell(j++);
+                    col.innerText = student[prop];
+                }
+
+                var lastCol = row.insertCell(j);
+                var img = document.createElement('img');
+                img.src = 'images/del.png';
+                img.style.height = '30px';
+                img.row_index = i++;
+
+                img.addEventListener('click', (e) => {
+                    // console.log(e.target.row_index);
+                    tbd.deleteRow(e.target.row_index);
+                });
+
+                lastCol.append(img);
+            });    
+        });
+
+
+        save.addEventListener('click', () => {
+            // console.log(name.value);
+            var obj = {name: nm.value, college: college.value, degree: degree.value, branch: branch.value, semester: semester.value};
+            arr.push(obj);
+            form.reset();
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        class Student {
+            constructor(name, age, college, degree) {
+                this.name = name;
+                this.age = age;
+                this.college = college;
+                this.degree = degree;
+            }
+        }
+
+        class Teacher {
+            constructor(name, age, salary, experience) {
+                this.name = name;
+                this.age = age;
+                this.salary = salary;
+                this.experience = experience;
+            }
+        }
+
+        const s1 = new Student('mohan', 21, 'GGTC', 'BE');
+        
+        console.log(s1);
+        console.log(s1.toString());
+
+        const e1 = new Teacher('Ganesh', 32, 32000, 4);
+
+        console.log(e1.toString());
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script> 
+
+        let showInfo = function() {
+            console.log('My Nmae:', this.name, 'and My Age:', this.age);
+        };
+
+        let obj1 = {
+            name: 'ramji',
+            age: 12
+        };
+
+        // obj1.showInfo();
+        showInfo.call(obj1);
+
+        let obj2 = {
+            name: 'omji',
+            age: 18
+        };
+
+        // obj2.showInfo();
+        showInfo.call(obj2);
+        
+        let obj3 = {
+            name: 'goluji',
+            age: 7
+        };
+
+        // obj3.showInfo();
+        showInfo.call(obj3);
+    </script>
+</body>
+</html>

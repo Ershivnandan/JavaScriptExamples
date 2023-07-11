@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        table, td {
+            border: 1px solid red;
+            margin: 100px auto;
+            width: 50%;            
+        }
+
+        td {
+            height: 40px;
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Records...</h1>
+
+    <hr>
+
+    <table id="a">
+
+    </table>
+
+    <hr>
+
+    <input type="button" id="btn" value="Show Records">
+
+
+    <script>
+
+        var tbl = document.querySelector('#a');
+        var btn = document.querySelector('#btn');
+
+        var recs = [
+            ['mohan', 21, 'BTech', '3rd'],
+            ['sohan', 18, 'BE', '7th'],
+            ['rohan', 19, 'BSc', '2nd'],
+            ['gohan', 22, 'MTech', '4th'],
+            ['tohan', 21, 'BTech', '6th'],
+        ];
+
+        btn.onclick = showRecords;
+
+        function showRecords() {
+            var i = 0;
+            for(var arr of recs) {
+                // var row = document.createElement('tr');
+                var row = tbl.insertRow(i);
+                var j = 0;
+                for(var y of arr) {
+                    // var col = document.createElement('td');
+                    var col = row.insertCell(j);
+                    col.innerHTML = y;
+                    // row.append(col);
+                    j++;
+                }
+
+                // tbl.append(row);
+                i++;     
+            }
+
+            btn.onclick = '';
+
+        }
+    </script>
+</body>
+</html>

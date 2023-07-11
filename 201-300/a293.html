@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="images/d1.png" height="100" id="a">   
+
+    <script>
+        var a = document.querySelector('#a');
+
+        var showNewFace = () => {
+            var rval = Math.ceil(Math.random() * 6); 
+            a.src = 'images/d'+rval+'.png';
+        };
+
+        var rollDice = () => {
+            a.src = 'images/dice.gif';
+            setTimeout(showNewFace, 3000);
+        };
+
+        a.onclick = rollDice;
+    </script>
+</body>
+</html>

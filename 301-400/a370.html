@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <br>
+
+    <script>
+        
+
+        // constructor function
+        function employee(nm, ag) {
+            this.name = nm;
+            this.age = ag;
+            
+        }
+
+
+        
+        var z = new employee('ram', 3);
+        z.prototype =  function process () {
+                        console.log(`My Name: ${this.name} and  age: ${this.age}`)
+                    };
+
+        console.log(z);
+
+        
+    </script>
+</body>
+</html>

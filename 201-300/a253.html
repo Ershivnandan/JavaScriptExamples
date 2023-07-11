@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: verdana;
+            font-size: 20px;
+        }
+        
+        #tbl {
+            border: 1px solid #999;
+            width: 70%;
+            margin: 10px auto;
+            border-collapse: collapse;
+        }
+
+        #tbl td, #tbl th {
+            border: 1px solid #eee;
+            border-collapse: collapse;
+            height: 50px;
+            width: 14%;
+        }
+
+        #tbl thead tr {
+            background-color: #777;
+            color: #fff;
+        }
+
+        tbody td {
+            text-align: center;
+            font-weight: bold;
+            color: rgb(231, 91, 91);
+        }
+
+        caption {
+            font-size: 28px;
+            font-weight: bold;
+            font-family: verdana;
+            color: #444;
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <table id="tbl">
+        <caption></caption>
+        <thead>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+        </thead>
+            
+        <tbody id="tbd">
+            
+        </tbody>
+    </table>
+
+    <script>
+        var tbody = document.querySelector('#tbd');
+        var caption = document.querySelector('caption');
+
+        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        
+        var currentDate = new Date();
+
+        currentDate.setDate(1);
+
+        currentDate.setMonth(1);
+        currentDate.setFullYear(2023);
+
+        var currentDay = currentDate.getDay();
+        var currentMonth = currentDate.getMonth();
+
+        caption.innerHTML = months[currentDate.getMonth()] + ', ' + currentDate.getFullYear();
+
+        var i = 0;
+        var start = true;
+        var end = true;
+        do {
+            var row = tbody.insertRow(i++);
+
+            for(j = 0; j < 7; j++) {
+                var col = row.insertCell(j);
+
+                if(start && j == currentDay) {
+                    col.innerText = currentDate.getDate();
+                    currentDate.setDate(currentDate.getDate()+1);
+                    start = false;
+                } else if(!start && end) {
+                    if(currentDate.getMonth() == currentMonth) {
+                        col.innerText = currentDate.getDate();
+                        currentDate.setDate(currentDate.getDate()+1);
+                    } else {
+                        end = false;
+                    }
+                }
+            }
+        } while(end);
+    </script>
+</body>
+</html>

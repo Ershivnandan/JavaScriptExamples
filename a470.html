@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        //Case 1:
+        // const add = function(a, b, c) {
+        //     return a + b + c;
+        // };
+
+        // let x = add(2, 5, 7);
+
+        //Case 2:
+        const add = function(a) {
+            return function(b) {
+                return a + b;
+            };
+        };    
+
+        let f1 = add(13);
+        // console.log(f1);
+        let res = f1(12);
+        console.log(res);
+    </script>
+</body>
+</html>

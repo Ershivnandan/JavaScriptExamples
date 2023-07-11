@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <script>
+        //object constructor function...
+        function Student(name, age, college) {
+            this.name = name;
+            this.age = age;
+            this.college = college;
+        }
+
+        var s = new Student('jagdeep', 23, 'IIIT');
+        var t = new Student('vibhuti', 19, 'GGITS');
+
+        // var s = {name: 'jagdeep', age: 23, college: 'IIIT'};
+        // var t = {name: 'vibhuti', age: 19, college: 'GGITS'};
+
+        console.log(s, typeof s);
+        console.log(t, typeof t);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <hr>
+
+    <input type="number" id="a">
+    <br><br>
+    <input type="button" value="Find Index" id="btn">
+
+    <script>
+        var inp = document.querySelector('#a');
+        var btn = document.querySelector('#btn');
+
+        var arr = [34, 56, 67, 12, 78, 45, 27, 12, 45, 90, 38, 12, 45, 19, 88, 11, 12];
+
+        btn.onclick = findIndex;
+
+        function findIndex() {
+            var val = parseInt(inp.value);
+            console.log(typeof val);
+
+            var x = arr.indexOf(val);
+
+            while(x != -1) {
+                console.log(x);
+
+                x = arr.indexOf(val, x+1);
+            }
+        }
+    </script>
+</body>
+</html>

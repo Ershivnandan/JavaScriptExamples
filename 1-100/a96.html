@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span class="a">Some Text A</span> <br>
+    <span class="a">Some Text B</span> <br>
+    <span class="a">Some Text C</span> <br>
+    <span class="a">Some Text D</span> <br>
+    <span class="a">Some Text E</span>
+
+    <script>
+        var x = document.querySelectorAll('.a');
+
+        //Case 1:
+        //classic for loop
+        // for(i = 0; i < x.length; i++) {
+        //     console.log(x[i], '~~~~~');
+        // }
+
+        //Case 2:
+        //for-each loop
+        // x.forEach(show);
+
+        // function show(elm) {
+        //     console.log(elm, '^^^^')
+        // }
+
+        //Case 3:
+        //for-of loop
+        for(var elm of x) {
+            console.log(elm, '####');
+        }
+    </script>
+</body>
+</html>

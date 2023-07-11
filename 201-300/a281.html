@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    
+    <hr>
+
+    <script>
+        var arr = [12, 45, 22, 7, 9, 51];
+        var oddArr = [];
+        
+        function filterRecord(x) {
+            for(var i=0;i<x.length;i++) {
+                if(x[i] % 2 == 1) {
+                    oddArr.push(x[i]);
+                }
+            }
+        }
+
+        filterRecord(arr);
+
+        console.log(oddArr);
+    </script>
+</body>
+</html>

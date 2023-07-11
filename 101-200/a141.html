@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="a">####</h1>
+
+    <input type="number" id="inp">
+    <input type="button" value="Add Record at index 0" id="add">
+
+    <hr>
+    
+    <input type="button" id="btn" value="Remove From Start">
+
+    <script>
+        var btn = document.querySelector('#btn');
+        var hd = document.querySelector('#a');
+
+        var inp = document.querySelector('#inp');
+        var add = document.querySelector('#add');
+
+        btn.onclick = removeFromStart;
+
+        var arr = [34, 56, 78, 12, 9, 99];        
+        hd.innerHTML = arr.join();
+
+        add.onclick = addRecordIntheBeginning;
+
+        function addRecordIntheBeginning() {
+            arr.unshift(inp.value);
+            hd.innerHTML = arr.join();
+        }
+
+        function removeFromStart() {
+            arr.shift();
+            hd.innerHTML = arr.join();
+        }
+
+        console.log(arr);
+    </script>
+</body>
+</html>

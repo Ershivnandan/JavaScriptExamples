@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: verdana;
+        }
+
+        button {
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 28px;
+            color: #444;
+            padding: 10px;
+        }
+
+        #a {
+            display: inline-block;
+            border: 10px solid #888;
+            border-radius: 8px;
+            margin: 50px auto;    
+        }
+
+        #inp {
+            padding: 8px 12px;
+            font-size: 28px;
+            color: #333;
+        }
+    </style>
+</head>
+<body style="text-align: center;">
+    <div id="a">
+        <table>
+            <thead>
+                <tr>
+                    <td colspan="4">
+                        <input type="text" id="inp" readonly>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button>-</button></td>
+                </tr>
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>*</button></td>
+                </tr>
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>/</button></td>
+                </tr>
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>=</button></td>
+                    <td><button>C</button></td>
+                    <td><button>+</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        const tbd = document.querySelector('tbody');
+        const inp = document.querySelector('#inp');
+
+        tbd.addEventListener('click', (e) => {
+            let btn = e.target;
+            
+            if(btn.innerText == '=') {
+                inp.value = eval(inp.value);
+            } else if(btn.innerText == 'C') {
+                inp.value = '';
+            } else {
+                // inp.value = inp.value + e.target.innerText;
+                inp.value += btn.innerText;
+            }
+        });
+    </script>
+</body>
+</html>

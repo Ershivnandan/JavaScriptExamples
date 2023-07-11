@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #a {
+            border: 3px solid red;
+            height: 200px;
+            width: 100%;
+        }
+
+        #b {
+            font-family: verdana;
+            font-size: 20px;
+            border: 3px solid green;
+            padding: 5px 12px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <table border="1" width="50%" align="center">
+        <tr>
+            <td width="50%">
+                <span id="b" draggable="true">Jay</span>
+            </td>
+            <td width="50%">
+                <div id="a">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        var b = document.querySelector('#b');
+        var a = document.querySelector('#a');
+
+        b.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData('val', e.target.id);
+        });
+
+        a.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        a.addEventListener('drop', (e) => {
+            e.preventDefault();
+            
+            var val = e.dataTransfer.getData('val');
+            var elm = document.querySelector('#'+val);
+
+            e.target.append(elm);
+        });
+    </script>
+</body>
+</html>
